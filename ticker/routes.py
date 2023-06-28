@@ -1,13 +1,22 @@
 from ticker import app, Item
+from fastapi import Request
+from fastapi.templating import Jinja2Templates
+from fastapi.responses import HTMLResponse
+
+templates = Jinja2Templates(directory="templates")
 
 @app.get("/")
 def read_root():
     return {"Hello": "world"}
 
-@app.get("/item/{item_id}")
-def read_item(item_id: int, q: str = None):
-    return {"item_id": item_id, "q": q}
+@app.get("/item/{item_id}", response_class=HTMLResponse)
+def read_item(request: Request, item_id: int, **kwargs):
+    return templates.TemplateResponse("item.html", {"request": request, "item_id": item_id})
 
 @app.put("/item/{item_id}")
 def update_item(item_id: int, item: Item):
     return {"item_id": item_id, "item_price": item.price}
+
+@app.get("/files/{file_path:path}")
+def read_path(file_path: str):
+    return {"file_path": file_path}

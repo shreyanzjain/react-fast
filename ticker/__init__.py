@@ -1,6 +1,7 @@
 from typing import Union
 from fastapi import FastAPI
 from pydantic import BaseModel
+from sqlalchemy import create_engine
 
 app = FastAPI()
 
