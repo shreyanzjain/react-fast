@@ -1,8 +1,16 @@
-{% extends "base.html" %}
-{% block body %}
-    <div class="row">
-        <div class="col-6">
-            <h1> Your item: {{ item_id }} </h1>
-        </div>
-    </div>
+{% extends "base.html" %} {% block body %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col" class="col col-4">#</th>
+      <th scope="col" class="col col-4">Item Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{item_id}}</th>
+      <td>{{item_name}}</td>
+    </tr>
+  </tbody>
+</table>
 {% endblock body %}
