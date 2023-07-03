@@ -1,7 +1,5 @@
 from typing import Union
-from pydantic import BaseModel
+from ticker.database import Base
+from sqlalchemy import Column, Integer, String, Double, Boolean, ForeignKey
+from sqlalchemy.orm import relationship
 
-class Item(BaseModel):
-    name: str
-    price: float
-    is_offer: Union[bool, None] = None
