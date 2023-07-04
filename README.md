@@ -9,6 +9,11 @@ Requirements:
 4. cd into the backend folder using another terminal and start the app with ``` uvicorn main:app --reload```
 
 # Screenshots
+1. The file gets uploaded
 ![Unavailable](./screenshots/upload.png "Uploading file")
+
+2. The file is sent to the backend
 ![Unavailable](./screenshots/post_req.png "Posting file to backend")
+
+3. The file is fetched
 ![Unavailable](./screenshots/get_req.png "Get data from DB")
