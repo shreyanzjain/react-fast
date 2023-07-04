@@ -50,5 +50,5 @@ def upload_form(file: Union[UploadFile, None] = None, db: Session = Depends(get_
         return new_row
     
 @app.get('/data/all', response_model=List[schemas.Stock])
-def get_data(db: Session = Depends(get_db), skip: int = 0, limit: int = 100):
-    return db.query(models.Stock).offset(skip).limit(limit).all()
+def get_data(db: Session = Depends(get_db), skip: int = 0, limit: int = 11, page: int = 0):
+    return db.query(models.Stock).offset(skip + (15 * page)).limit(limit).all()
